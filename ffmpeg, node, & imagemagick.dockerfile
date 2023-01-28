@@ -8,8 +8,7 @@ RUN sudo apt install curl -y
 # nvm environment variables
 RUN mkdir /usr/local/nvm
 ENV NVM_DIR /usr/local/nvm
-ENV NODE_VERSION 4.4.7
-
+ENV NODE_VERSION 19.5.0
 # install nvm
 # https://github.com/creationix/nvm#install-script
 RUN curl --silent -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
