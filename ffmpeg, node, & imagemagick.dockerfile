@@ -2,7 +2,7 @@ FROM ubuntu
 
 SHELL ["/bin/bash", "-c"]
 RUN apt-get update
-RUN apt-get install ffmpeg imagemagick sudo -y
+RUN apt-get install ffmpeg bc imagemagick sudo -y
 RUN sudo apt install curl -y
 
 # nvm environment variables
