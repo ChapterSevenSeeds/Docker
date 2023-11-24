@@ -2,7 +2,7 @@ FROM ubuntu
 
 SHELL ["/bin/bash", "-c"]
 RUN apt-get update
-RUN apt-get install ffmpeg bc imagemagick sudo -y
+RUN apt-get install ffmpeg bc imagemagick sudo git -y
 RUN sudo apt install curl -y
 
 # nvm environment variables
@@ -22,5 +22,7 @@ RUN source $NVM_DIR/nvm.sh \
 # add node and npm to path so the commands are available
 ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
 ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
+
+RUN npm i -g pnpm
 
 CMD ["echo", "Hello?"]
