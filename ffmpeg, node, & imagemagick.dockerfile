@@ -3,7 +3,6 @@ FROM ubuntu
 SHELL ["/bin/bash", "-c"]
 RUN apt-get update
 RUN apt-get install ffmpeg bc imagemagick sudo git tmux curl -y
-RUN apt-get install libgconf-2-4 libatk1.0-0 libatk-bridge2.0-0 libgdk-pixbuf2.0-0 libgtk-3-0 libgbm-dev libnss3-dev libxss-dev -y
 
 # nvm environment variables
 RUN mkdir /usr/local/nvm
@@ -24,8 +23,6 @@ ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
 ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 
 RUN npm i -g pnpm
-RUN npm i -g puppeteer
-RUN echo yes | puppeteer browsers clear
-RUN puppeteer browsers install chrome
+RUN npx -y playwright install --with-deps
 
 CMD ["echo", "Hello?"]
