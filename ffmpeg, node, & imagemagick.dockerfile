@@ -3,6 +3,7 @@ FROM ubuntu
 SHELL ["/bin/bash", "-c"]
 RUN apt-get update
 RUN apt-get install ffmpeg bc imagemagick sudo git tmux curl -y
+RUN apt-get install dos2unix
 
 # nvm environment variables
 RUN mkdir /usr/local/nvm
