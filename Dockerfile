@@ -2,7 +2,11 @@ FROM ubuntu
 
 SHELL ["/bin/bash", "-c"]
 RUN apt-get update
-RUN apt-get install ffmpeg bc imagemagick sudo git tmux curl dos2unix -y
+RUN apt-get install ffmpeg bc imagemagick sudo git tmux curl dos2unix wget jq build-essential libssl-dev -y
+
+RUN wget https://gist.githubusercontent.com/davideuler/469a41b79aa7484de0c36c9f6cb780f8/raw/f1f991c15039831f429225983b113a35a4d66f25/xps2pdf.bash
+RUN chmod +x xps2pdf.bash
+RUN mv xps2pdf.bash /usr/local/bin/xps2pdf
 
 # nvm environment variables
 RUN mkdir /usr/local/nvm
@@ -25,4 +29,4 @@ ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 RUN npm i -g pnpm
 RUN npx -y playwright install --with-deps
 
-CMD ["echo", "Hello?"]
+CMD ["/bin/bash"]

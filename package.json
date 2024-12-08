@@ -1,5 +1,0 @@
-{
-    "scripts": {
-        "build": "Get-Content '.\\ffmpeg, node, & imagemagick.dockerfile' | docker build -t chaptersevenseeds/tools:latest -"
-    }
-}
