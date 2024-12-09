@@ -8,6 +8,10 @@ RUN wget https://gist.githubusercontent.com/davideuler/469a41b79aa7484de0c36c9f6
 RUN chmod +x xps2pdf.bash
 RUN mv xps2pdf.bash /usr/local/bin/xps2pdf
 
+RUN wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2_amd64.deb
+RUN sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2_amd64.deb
+RUN rm libssl1.1_1.1.1f-1ubuntu2_amd64.deb
+
 # nvm environment variables
 RUN mkdir /usr/local/nvm
 ENV NVM_DIR /usr/local/nvm
