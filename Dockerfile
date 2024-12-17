@@ -2,7 +2,12 @@ FROM ubuntu
 
 SHELL ["/bin/bash", "-c"]
 RUN apt-get update
-RUN apt-get install ffmpeg bc imagemagick sudo git tmux curl dos2unix wget jq build-essential libssl-dev nano yt-dlp -y
+RUN apt-get install ffmpeg bc imagemagick sudo git tmux curl dos2unix wget jq build-essential libssl-dev nano yt-dlp unzip -y
+
+# Install Storj uplink
+RUN curl -L https://github.com/storj/storj/releases/latest/download/uplink_linux_amd64.zip -o uplink_linux_amd64.zip
+RUN unzip -o uplink_linux_amd64.zip
+RUN sudo install uplink /usr/local/bin/uplink
 
 RUN wget https://gist.githubusercontent.com/davideuler/469a41b79aa7484de0c36c9f6cb780f8/raw/f1f991c15039831f429225983b113a35a4d66f25/xps2pdf.bash
 RUN chmod +x xps2pdf.bash
