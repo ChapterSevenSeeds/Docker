@@ -2,7 +2,7 @@ FROM ubuntu
 
 SHELL ["/bin/bash", "-c"]
 RUN apt-get update
-RUN apt-get install software-properties-common
+RUN apt-get install software-properties-common -y
 RUN add-apt-repository ppa:deadsnakes/ppa -y
 RUN apt-get update
 RUN apt-get install ffmpeg bc imagemagick sudo git tmux curl dos2unix wget jq build-essential libssl-dev nano yt-dlp unzip python3.14 python3.14-venv conntrack -y
