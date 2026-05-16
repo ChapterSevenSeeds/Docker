@@ -7,6 +7,9 @@ RUN add-apt-repository ppa:deadsnakes/ppa -y
 RUN apt-get update
 RUN apt-get install ffmpeg bc imagemagick sudo git tmux curl dos2unix wget jq build-essential libssl-dev nano yt-dlp unzip python3.14 python3.14-venv conntrack iperf3 -y
 
+RUN curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
+RUN apt-get install speedtest-cli
+
 RUN wget https://gist.githubusercontent.com/davideuler/469a41b79aa7484de0c36c9f6cb780f8/raw/f1f991c15039831f429225983b113a35a4d66f25/xps2pdf.bash
 RUN chmod +x xps2pdf.bash
 RUN mv xps2pdf.bash /usr/local/bin/xps2pdf
